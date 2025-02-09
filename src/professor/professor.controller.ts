@@ -1,7 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ProfessorService } from './professor.service';
-import { CreateProfessorDto } from '../core/dto/create-professor.dto';
-import { UpdateProfessorDto } from '../core/dto/update-professor.dto';
+import { CreateProfessorDto } from 'src/core/dto/professor/create-professor.dto';
+import { UpdateProfessorDto } from 'src/core/dto/professor/update-professor.dto';
 
 @Controller('professor')
 export class ProfessorController {
@@ -23,7 +31,10 @@ export class ProfessorController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProfessorDto: UpdateProfessorDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateProfessorDto: UpdateProfessorDto,
+  ) {
     return this.professorService.update(+id, updateProfessorDto);
   }
 

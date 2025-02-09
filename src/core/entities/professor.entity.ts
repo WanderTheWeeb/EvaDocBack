@@ -4,7 +4,7 @@ import { Survey } from './survey.entity';
 @Entity()
 export class Professor {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
   @Column()
   noPersonal: string;
   @Column()

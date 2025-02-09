@@ -4,7 +4,7 @@ import { Survey } from './survey.entity';
 @Entity()
 export class Period {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
   @Column()
   name: string;
   @ManyToOne(() => Survey, (survey) => survey.period)

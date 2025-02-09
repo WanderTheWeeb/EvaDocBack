@@ -1,11 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { SurveyService } from './survey.service';
 import { CreateSurveyDto } from 'src/core/dto/survey/create-survey.dto';
 import { UpdateSurveyDto } from 'src/core/dto/survey/update-survey.dto';
 
 @Controller('survey')
 export class SurveyController {
-  constructor(private readonly surveyService: SurveyService) { }
+  constructor(private readonly surveyService: SurveyService) {}
 
   @Post()
   create(@Body() createSurveyDto: CreateSurveyDto) {

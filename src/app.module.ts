@@ -16,15 +16,13 @@ import { SurveyModule } from './survey/survey.module';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      entities: [
-        __dirname+'/**/**/*.entity{.js,.ts}'
-      ],
+      entities: [__dirname + '/**/**/*.entity{.js,.ts}'],
       synchronize: true,
     }),
     ProfessorModule,
-    SurveyModule
+    SurveyModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

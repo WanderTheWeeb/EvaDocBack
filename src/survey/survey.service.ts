@@ -1,26 +1,34 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { CreateSurveyDto } from 'src/core/dto/survey/create-survey.dto';
 import { UpdateSurveyDto } from 'src/core/dto/survey/update-survey.dto';
+import { Survey } from 'src/core/entities/survey.entity';
+import { Repository, UpdateResult } from 'typeorm';
 
 @Injectable()
 export class SurveyService {
-  create(createSurveyDto: CreateSurveyDto) {
-    return 'This action adds a new survey';
+  constructor(
+    @InjectRepository(Survey)
+    private readonly surveyRepository: Repository<Survey>,
+  ) {}
+
+  create(createSurveyDto: CreateSurveyDto): Promise<Survey> {
+    return this.surveyRepository.save(createSurveyDto);
   }
 
-  findAll() {
-    return `This action returns all survey`;
+  findAll(): Promise<Survey[]> {
+    return this.surveyRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} survey`;
+  findOne(id: number): Promise<Survey | null> {
+    return this.surveyRepository.findOneBy({ id });
   }
 
-  update(id: number, updateSurveyDto: UpdateSurveyDto) {
-    return `This action updates a #${id} survey`;
+  update(id: number, updateSurveyDto: UpdateSurveyDto): Promise<UpdateResult> {
+    return this.surveyRepository.update(id, updateSurveyDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} survey`;
+  async remove(id: number): Promise<void> {
+    await this.surveyRepository.softDelete(id);
   }
 }
