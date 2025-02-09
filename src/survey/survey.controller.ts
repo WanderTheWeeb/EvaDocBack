@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { SurveyService } from './survey.service';
-import { CreateSurveyDto } from 'src/core/dto/create-survey.dto';
-import { UpdateSurveyDto } from 'src/core/dto/update-survey.dto';
+import { CreateSurveyDto } from 'src/core/dto/survey/create-survey.dto';
+import { UpdateSurveyDto } from 'src/core/dto/survey/update-survey.dto';
 
 @Controller('survey')
 export class SurveyController {

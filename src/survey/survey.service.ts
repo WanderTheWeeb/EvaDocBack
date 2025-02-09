@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateSurveyDto } from 'src/core/dto/create-survey.dto';
-import { UpdateSurveyDto } from 'src/core/dto/update-survey.dto';
+import { CreateSurveyDto } from 'src/core/dto/survey/create-survey.dto';
+import { UpdateSurveyDto } from 'src/core/dto/survey/update-survey.dto';
 
 @Injectable()
 export class SurveyService {
